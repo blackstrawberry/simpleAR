@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Example</title>
+    <script src="https://developer.letsee.io/api/webar?key=5d6ca4e45ffc4d14f89a6385d17758656996c5e0225d387edcbba20128f035f9"></script>
+</head>
+<body>
+<div id="container">
+    Hello, world!
+</div>
+<script>
+    letsee.ready(() => {
+        letsee.start();
+        letsee.addTarget('https://developer.letsee.io/api-tm/target-manager/target-uid/62f6f482d6199bfa7d62b123')
+            .then(entity => {
+                let xrElement = letsee.createXRElement(document.getElementById('container'));
+                letsee.bindXRElement(xrElement, entity);
+            });
+    });
+    letsee.init({trackerType: 'image'});
+</script>
+</body>
+</html>
